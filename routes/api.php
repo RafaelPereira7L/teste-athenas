@@ -16,5 +16,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PersonController::class, 'index'])->name('person.index');
-Route::get('/{person}', [PersonController::class, 'show'])->name('person.show');
+Route::get('/', function () {
+    return Person::with('category');
+});

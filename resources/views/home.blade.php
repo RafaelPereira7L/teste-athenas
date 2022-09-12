@@ -7,7 +7,14 @@
 
 <section class="text-gray-600">
     <div class="container px-5 py-24 mx-auto">
-        <div class="flex flex-wrap -m-4">
+
+        @if(session('success'))
+        <div class="bg-blue-100 border border-blue-400 text-blue-700 px-4 py-3 rounded mb-6" role="alert">
+            <span class="block sm:inline">{{ session('success') }}</span>
+        </div>
+        @endif
+
+        <div class="flex flex-wrap -m-4 mb-4">
             <table class="table-auto w-full text-left whitespace-no-wrap">
                 <thead>
                 <tr>
@@ -33,7 +40,8 @@
 
                 </tbody>
             </table>
-            </div>
+        </div>
+        {{$persons->links()}}
         </div>
     </section>
 

@@ -18,3 +18,9 @@ Route::get('/', [PersonController::class, 'index'])->name('person.index');
 Route::get('/{person}', [PersonController::class, 'show'])->name('person.show');
 
 Route::post('/{person}', [PersonController::class, 'store'])->name('person.store');
+
+
+Route::get('/{person}/edit', [PersonController::class, 'edit'])->name('person.edit');
+Route::put('/{person}', [PersonController::class, 'update'])->name('person.update');
+
+Route::get('/{person}/delete', [PersonController::class, 'destroy'])->name('person.destroy');

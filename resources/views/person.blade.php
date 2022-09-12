@@ -6,7 +6,15 @@
 
 
 <section class="text-gray-600">
+
     <div class="container px-5 py-24 mx-auto">
+
+        @if(session('success'))
+        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-6" role="alert">
+            <span class="block sm:inline">{{ session('success') }}</span>
+        </div>
+        @endif
+
         <div class="flex flex-wrap -m-4">
             <table class="table-auto w-full text-left whitespace-no-wrap">
                 <thead>
@@ -26,8 +34,8 @@
                         <td class="px-4 py-3 hidden lg:flex">{{ $person->email }}</td>
                         <td class="px-4 py-3">{{ $person->category->id }} - {{ $person->category->name }}</td>
                         <td class="px-4 py-3 text-sm text-right space-x-3 text-gray-900">
-                            <a href="" class="mt-3 text-indigo-500 inline-flex items-center cursor-pointer">Editar</a>
-                            <a href="" class="mt-3 text-red-500 inline-flex items-center cursor-pointer">Deletar</a>
+                            <a href="{{route('person.edit', $person->id) }}" class="mt-3 text-indigo-500 inline-flex items-center cursor-pointer">Editar</a>
+                            <a href="{{route('person.destroy', $person->id) }}" class="mt-3 text-red-500 inline-flex items-center cursor-pointer">Deletar</a>
                         </td>
                     </tr>
                     @endif
