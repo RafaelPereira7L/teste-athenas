@@ -1,63 +1,131 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1 align="center">Teste Athenas Online </h1>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Sobre o Projeto
 
-## About Laravel
+O desafio é criar um crud simples em PHP e que salve os dados no banco de dados (Firebird, MySQL, Mongo, PostgreSQL etc) através de uma API REST.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## Tecnologias utilizadas
+- PHP
+- Laravel
+- MySQL
+- Docker
+- Swagger
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Passos para rodar o Projeto
 
-## Learning Laravel
+1. Clone o repositório utilizando este comando:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+```terminal
+$ git clone https://github.com/RafaelPereira7L/teste-athenas.git
+```
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+2. Acesse a pasta do projeto no terminal:
 
-## Laravel Sponsors
+```terminal
+$ cd teste-athenas
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+3. Rode o comando para instalar todas as dependências com o Composer.
 
-### Premium Partners
+```terminal
+$ composer install
+```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+4. Instalar o Laravel Sail para utilizar o Docker
 
-## Contributing
+```terminal
+$ php artisan sail:install
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+5. Copie o .env.example para um novo arquivo chamado .env
 
-## Code of Conduct
+```terminal
+$ cp .env.example .env
+```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+6. Modifique as variáveis de ambiente da base de dados em .env:
+    - **DB_DATABASE**: Nome da base de dados do projeto.
+    - **DB_USERNAME**: Usuário do MySQL.
+    - **DB_PASSWORD**: Senha do MySQL.
 
-## Security Vulnerabilities
+```dotenv
+DB_DATABASE=athenas_crud
+DB_USERNAME=athenas
+DB_PASSWORD=root
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+7. Rodar a aplicação
+
+```terminal
+$ ./vendor/bin/sail up -d
+```
+
+7. Rodar migrations e seeders
+
+```terminal
+$ ./vendor/bin/sail artisan migrate --seed
+```
+
+<hr>
+<br>
+
+## Rotas da aplicação com Front End
+
+- Obter todas as pessoas => http://localhost/
+
+<img src="public/index.jpg">
+<br>
+<br>
+
+- Obter pessoa pelo ID => http://localhost/{person_id}
+
+<img src="public/show.jpg">
+<br>
+<br>
+
+- Criar pessoa => http://localhost/create
+
+<img src="public/create.jpg">
+<br>
+<br>
+
+- Editar pessoa => http://localhost/{person_id}/edit
+
+<img src="public/edit.jpg">
+<br>
+<br>
+
+- Deletar pessoa => http://localhost/{person_id}/delete
+
+<hr>
+
+## Rotas da API
+
+ - SWAGGER
+
+Visualizar Documentação via Swagger => http://localhost/api/doc
+### Overview
+<img src="public/swagger.jpg">
+
+<hr>
+
+- ROTAS
+
+    - GET
+        - Obter todas as pessoas => http://localhost/
+        - Obter pessoa pelo ID => http://localhost/{person_id}
+
+    - POST
+        - Criar pessoa => http://localhost/
+    
+    - PUT
+        - Editar pessoa => http://localhost/{person_id}
+
+    - DELETE
+        - Deletar pessoa => http://localhost/{person_id}/delete
+
 
 ## License
 

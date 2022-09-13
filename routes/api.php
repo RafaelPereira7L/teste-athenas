@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\PersonController;
+use App\Http\Controllers\PersonControllerApi;
 use App\Models\Person;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -16,15 +16,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [PersonController::class, 'index'])->name('person.index');
-Route::get('/create', [PersonController::class, 'create'])->name('person.create');
-Route::get('/{person}', [PersonController::class, 'show'])->name('person.show');
+Route::get('/', [PersonControllerApi::class, 'index'])->name('person.index');
+Route::get('/{person}', [PersonControllerApi::class, 'show'])->name('person.show');
 
 
-Route::post('/', [PersonController::class, 'store'])->name('person.store');
+Route::post('/', [PersonControllerApi::class, 'store'])->name('person.store');
 
 
-Route::get('/{person}/edit', [PersonController::class, 'edit'])->name('person.edit');
-Route::put('/{person}', [PersonController::class, 'update'])->name('person.update');
+Route::put('/{person}', [PersonControllerApi::class, 'update'])->name('person.update');
 
-Route::get('/{person}/delete', [PersonController::class, 'destroy'])->name('person.destroy');
+
+Route::delete('/{person}/delete', [PersonControllerApi::class, 'destroy'])->name('person.destroy');

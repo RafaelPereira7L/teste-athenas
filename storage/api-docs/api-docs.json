@@ -1,0 +1,142 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Athenas API",
+        "version": "0.1"
+    },
+    "servers": [
+        {
+            "url": "http://localhost/api"
+        }
+    ],
+    "paths": {
+        "/": {
+            "get": {
+                "tags": [
+                    "/"
+                ],
+                "summary": "Obter todas as pessoas",
+                "description": "Obter todas as pessoas e suas categorias associadas",
+                "operationId": "796040ec5cbe035807b46270f926110b",
+                "parameters": [
+                    {
+                        "name": "page",
+                        "in": "query",
+                        "description": "Página a ser exibida",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Lista de pessoas"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "put": {
+                "tags": [
+                    "/{person_id}"
+                ],
+                "summary": "Editar pessoa pelo ID",
+                "description": "Editar pessoa e sua categoria associada",
+                "operationId": "acb421a59f27be87a8193bc0967edc95",
+                "parameters": [
+                    {
+                        "name": "person_id",
+                        "in": "path",
+                        "description": "ID da pessoa",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Pessoa atualizada com sucesso!"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            },
+            "post": {
+                "tags": [
+                    "/"
+                ],
+                "summary": "Registrar pessoa",
+                "description": "Registrar pessoa e sua categoria associada",
+                "operationId": "8dfc8e180d60ea814fee7c6653b4f7b9",
+                "responses": {
+                    "201": {
+                        "description": "Registrar pessoa"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/{person_id}": {
+            "get": {
+                "tags": [
+                    "/{person_id}"
+                ],
+                "summary": "Obter pessoa pelo ID",
+                "description": "Obter pessoa pelo ID e sua categoria associada",
+                "operationId": "aababe059b1ff8abd519b1f0a37db3d6",
+                "parameters": [
+                    {
+                        "name": "person_id",
+                        "in": "path",
+                        "description": "ID da pessoa",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Obter pessoa pelo ID"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/{person_id}/delete": {
+            "delete": {
+                "tags": [
+                    "/{person_id}/delete"
+                ],
+                "summary": "Deletar pessoa pelo ID",
+                "description": "Deletar pessoa pelo ID",
+                "operationId": "49ddfdd3b708e9107770df5ad603b2b0",
+                "parameters": [
+                    {
+                        "name": "person_id",
+                        "in": "path",
+                        "description": "ID da pessoa",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "202": {
+                        "description": "Pessoa deletada com sucesso!"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    }
+}
