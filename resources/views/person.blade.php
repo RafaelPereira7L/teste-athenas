@@ -1,6 +1,6 @@
 @extends('layouts.default')
 
-@section('title', 'Início')
+@section('title', $person->name)
 
 @section('content')
 

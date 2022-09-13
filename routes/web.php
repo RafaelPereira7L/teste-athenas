@@ -15,9 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [PersonController::class, 'index'])->name('person.index');
+Route::get('/create', [PersonController::class, 'create'])->name('person.create');
 Route::get('/{person}', [PersonController::class, 'show'])->name('person.show');
 
-Route::post('/{person}', [PersonController::class, 'store'])->name('person.store');
+
+Route::post('/', [PersonController::class, 'store'])->name('person.store');
 
 
 Route::get('/{person}/edit', [PersonController::class, 'edit'])->name('person.edit');
