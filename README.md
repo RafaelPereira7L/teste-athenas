@@ -114,17 +114,17 @@ Visualizar Documentação via Swagger => http://localhost/api/doc
 - ROTAS
 
     - GET
-        - Obter todas as pessoas => http://localhost/
-        - Obter pessoa pelo ID => http://localhost/{person_id}
+        - Obter todas as pessoas => http://localhost/api/
+        - Obter pessoa pelo ID => http://localhost/api/{person_id}
 
     - POST
-        - Criar pessoa => http://localhost/
+        - Criar pessoa => http://localhost/api/
     
     - PUT
-        - Editar pessoa => http://localhost/{person_id}
+        - Editar pessoa => http://localhost/api/{person_id}
 
     - DELETE
-        - Deletar pessoa => http://localhost/{person_id}/delete
+        - Deletar pessoa => http://localhost/api/{person_id}/delete
 
 
 ## License
