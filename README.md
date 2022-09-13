@@ -62,7 +62,7 @@ DB_PASSWORD=root
 $ ./vendor/bin/sail up -d
 ```
 
-7. Rodar migrations e seeders
+8. Rodar migrations e seeders
 
 ```terminal
 $ ./vendor/bin/sail artisan migrate --seed
