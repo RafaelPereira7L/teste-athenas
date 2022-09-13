@@ -12,7 +12,7 @@ class PersonController extends Controller
     public function index()
     {
         $persons = Person::with('category')->paginate(5);
-        return view('home', [
+        return view('index', [
             'persons' => $persons
         ]);
     }
